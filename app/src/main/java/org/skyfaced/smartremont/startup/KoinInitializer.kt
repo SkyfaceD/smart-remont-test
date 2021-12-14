@@ -10,6 +10,7 @@ import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import org.skyfaced.smartremont.BuildConfig
 import org.skyfaced.smartremont.di.modules.applicationModule
+import org.skyfaced.smartremont.di.modules.repositoryModule
 import org.skyfaced.smartremont.di.modules.viewModelModule
 
 class KoinInitializer : Initializer<KoinApplication> {
@@ -21,7 +22,8 @@ class KoinInitializer : Initializer<KoinApplication> {
             }
             modules(
                 applicationModule,
-                viewModelModule
+                repositoryModule,
+                viewModelModule,
             )
         }
 
