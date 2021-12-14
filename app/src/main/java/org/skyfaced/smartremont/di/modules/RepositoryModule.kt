@@ -1,6 +1,8 @@
 package org.skyfaced.smartremont.di.modules
 
 import org.koin.dsl.module
+import org.skyfaced.smartremont.ui.shop.cities.CitiesRepository
+import org.skyfaced.smartremont.ui.shop.cities.CitiesRepositoryImpl
 import org.skyfaced.smartremont.ui.signIn.SignInRepository
 import org.skyfaced.smartremont.ui.signIn.SignInRepositoryImpl
 import org.skyfaced.smartremont.ui.signUp.SignUpRepository
@@ -10,4 +12,6 @@ val repositoryModule = module {
     single<SignInRepository> { SignInRepositoryImpl(get(), get()) }
 
     single<SignUpRepository> { SignUpRepositoryImpl(get()) }
+
+    single<CitiesRepository> { CitiesRepositoryImpl(get()) }
 }

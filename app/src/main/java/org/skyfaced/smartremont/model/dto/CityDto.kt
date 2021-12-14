@@ -2,6 +2,7 @@ package org.skyfaced.smartremont.model.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.skyfaced.smartremont.model.adapter.CityItem
 
 @Serializable
 data class CityDto(
@@ -11,4 +12,9 @@ data class CityDto(
     val cityCode: String,
     @SerialName("city_name")
     val cityName: String
-)
+) {
+    fun toCityItem() = CityItem(
+        id = cityId,
+        name = cityName
+    )
+}
