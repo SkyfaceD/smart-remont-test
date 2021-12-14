@@ -1,6 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="app_name" translatable="false">Smart Remont</string>
-    <string name="lbl_shop">Магазин</string>
-    <string name="lbl_web">Веб</string>
+    <string name="helper_password">Минимальная длина пароля - 8 символов</string>
+
+    <string name="hint_confirm_password">Подтвердите пароль</string>
+    <string name="hint_number">Номер телефона</string>
+    <string name="hint_sms_code">Проверочный код</string>
+    <string name="hint_password">Пароль</string>
+
+    <string name="lbl_forgot_password">Забыли пароль?</string>
     <string name="lbl_gallery">Галерея</string>
+    <string name="lbl_next">Далее</string>
+    <string name="lbl_notification_subtitle">Ваш проверочный код: %1$s</string>
+    <string name="lbl_notification_title">Вам пришло уведомление</string>
+    <string name="lbl_shop">Магазин</string>
+    <string name="lbl_sign_in">Войти</string>
+    <string name="lbl_sign_up">Зарегистрироваться</string>
+    <string name="lbl_under_development">В разработке</string>
+    <string name="lbl_web">Веб</string>
+    <string name="lbl_welcome">Добро пожаловать!</string>
+
+    <string name="app_name" translatable="false">Smart Remont</string>
 </resources>
