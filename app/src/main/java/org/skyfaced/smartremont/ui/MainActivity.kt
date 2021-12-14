@@ -1,7 +1,8 @@
-package org.skyfaced.smartremont
+package org.skyfaced.smartremont.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import org.skyfaced.smartremont.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
