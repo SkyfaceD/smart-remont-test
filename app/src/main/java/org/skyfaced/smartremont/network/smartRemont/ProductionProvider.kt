@@ -5,9 +5,9 @@ import okhttp3.OkHttpClient
 import org.skyfaced.smartremont.network.BaseProvider
 import retrofit2.Retrofit
 
-class SmartRemontProvider(application: Application) : BaseProvider(application) {
+class ProductionProvider(application: Application) : BaseProvider(application) {
     private companion object {
-        const val BASE_URL = "https://private-anon-f83520c05e-restsmartdev.apiary-mock.com/index/"
+        const val PRODUCTION_BASE_URL = "https://testapi.smartremarket.kz/index/"
     }
 
     val api: SmartRemontApi = retrofit.create(SmartRemontApi::class.java)
@@ -19,7 +19,7 @@ class SmartRemontProvider(application: Application) : BaseProvider(application) 
 
     private val retrofit: Retrofit
         get() = retrofitBuilder
-            .baseUrl(BASE_URL)
+            .baseUrl(PRODUCTION_BASE_URL)
             .client(client)
             .build()
 }
