@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group
+        android:checkableBehavior="single"
+        tools:ignore="AlwaysShowAction">
+        <item
+            android:id="@+id/action_shop"
+            android:icon="@drawable/ic_shop"
+            android:orderInCategory="0"
+            android:title="@string/lbl_shop"
+            app:showAsAction="always" />
+
+        <item
+            android:id="@+id/action_web"
+            android:icon="@drawable/ic_web"
+            android:orderInCategory="1"
+            android:title="@string/lbl_web"
+            app:showAsAction="always" />
+
+        <item
+            android:id="@+id/action_gallery"
+            android:icon="@drawable/ic_gallery"
+            android:orderInCategory="2"
+            android:title="@string/lbl_gallery"
+            app:showAsAction="always" />
+    </group>
+
+</menu>
