@@ -13,7 +13,9 @@ class SmartRemontProvider(application: Application) : BaseProvider(application) 
     val api: SmartRemontApi = retrofit.create(SmartRemontApi::class.java)
 
     private val client: OkHttpClient
-        get() = clientBuilder.build()
+        get() = clientBuilder
+            .addInterceptor(SmartRemontBearerInterceptor())
+            .build()
 
     private val retrofit: Retrofit
         get() = retrofitBuilder
