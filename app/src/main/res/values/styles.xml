@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="ShapeAppearanceOverlay.ToggleButton.Top" parent="">
         <item name="cornerSizeBottomLeft">0dp</item>
         <item name="cornerSizeBottomRight">0dp</item>
@@ -13,5 +12,9 @@
         <item name="cornerSizeBottomRight">4dp</item>
         <item name="cornerSizeTopLeft">0dp</item>
         <item name="cornerSizeTopRight">0dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Base.Round" parent="">
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

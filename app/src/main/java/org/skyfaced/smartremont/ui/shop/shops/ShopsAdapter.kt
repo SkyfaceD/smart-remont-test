@@ -1,27 +1,28 @@
-package org.skyfaced.smartremont.ui.shop.cities
+package org.skyfaced.smartremont.ui.shop.shops
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import org.skyfaced.smartremont.databinding.ItemCityBinding
-import org.skyfaced.smartremont.model.adapter.CityItem
+import coil.load
+import org.skyfaced.smartremont.databinding.ItemShopBinding
+import org.skyfaced.smartremont.model.adapter.ShopItem
 import org.skyfaced.smartremont.ui.common.BaseViewHolder
 import org.skyfaced.smartremont.util.extensions.setOnDebounceClickListener
+import org.skyfaced.smartremont.util.ui.LetterDrawable
 
-@Deprecated("")
-class CitiesAdapter(val onItemClick: (CityItem) -> Unit) :
-    RecyclerView.Adapter<CitiesAdapter.ViewHolder>() {
-    var currentList = emptyList<CityItem>()
+class ShopsAdapter(val onItemClick: (ShopItem) -> Unit) :
+    RecyclerView.Adapter<ShopsAdapter.ViewHolder>() {
+    var currentList = emptyList<ShopItem>()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitList(list: List<CityItem>) {
-        currentList = list
+    fun submitList(items: List<ShopItem>) {
+        currentList = items
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(binding: ItemCityBinding) :
-        BaseViewHolder<ItemCityBinding, CityItem>(binding) {
+    inner class ViewHolder(binding: ItemShopBinding) :
+        BaseViewHolder<ItemShopBinding, ShopItem>(binding) {
         init {
             binding.root.setOnDebounceClickListener {
                 if (adapterPosition == RecyclerView.NO_POSITION) return@setOnDebounceClickListener
@@ -29,16 +30,23 @@ class CitiesAdapter(val onItemClick: (CityItem) -> Unit) :
             }
         }
 
-        override fun onBind(item: CityItem) {
+        override fun onBind(item: ShopItem) {
             super.onBind(item)
             binding {
-                txtCity.text = item.name
+                imgLogo.load(item.imageUrl) {
+                    val drawable = LetterDrawable(item.name)
+                    placeholder(drawable)
+                    error(drawable)
+                }
+                txtTitle.text = item.name
+                txtSubtitle.text = item.shopCount
+                txtCashback.text = item.cashback
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
-        ItemCityBinding.inflate(
+        ItemShopBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false

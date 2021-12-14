@@ -28,4 +28,8 @@
     <string name="msg_registration_success">Регистрация прошла успешно\nВам осталось лишь войти</string>
 
     <string name="app_name" translatable="false">Smart Remont</string>
+    <string name="lbl_select_city">Выбрать город</string>
+    <string name="lbl_city_list">Список городов</string>
+    <string name="lbl_shop_count">Филиалы компании: %1$s</string>
+    <string name="lbl_no_shop">Нет магазинов</string>
 </resources>

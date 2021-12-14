@@ -18,6 +18,7 @@ import org.skyfaced.smartremont.util.extensions.flowObserver
 import org.skyfaced.smartremont.util.extensions.lazySafetyNone
 import org.skyfaced.smartremont.util.extensions.showSnack
 
+@Deprecated("")
 class CitiesFragment : BaseFragment<FragmentCitiesBinding>() {
     private val viewModel by viewModel<CitiesViewModel>()
 

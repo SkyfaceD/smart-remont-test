@@ -34,6 +34,9 @@
             <meta-data
                 android:name="org.skyfaced.smartremont.startup.KoinInitializer"
                 android:value="androidx.startup" />
+            <meta-data
+                android:name="org.skyfaced.smartremont.startup.CoilInitializer"
+                android:value="androidx.startup" />
         </provider>
     </application>
 

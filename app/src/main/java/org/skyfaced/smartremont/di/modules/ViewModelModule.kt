@@ -3,7 +3,7 @@ package org.skyfaced.smartremont.di.modules
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import org.skyfaced.smartremont.ui.MainViewModel
-import org.skyfaced.smartremont.ui.shop.cities.CitiesViewModel
+import org.skyfaced.smartremont.ui.shop.shops.ShopsViewModel
 import org.skyfaced.smartremont.ui.signIn.SignInViewModel
 import org.skyfaced.smartremont.ui.signUp.SignUpViewModel
 import org.skyfaced.smartremont.ui.start.StartViewModel
@@ -17,5 +17,5 @@ val viewModelModule = module {
 
     viewModel { SignUpViewModel(get(), get()) }
 
-    viewModel { CitiesViewModel(get(), get()) }
+    viewModel { ShopsViewModel(get(), get()) }
 }

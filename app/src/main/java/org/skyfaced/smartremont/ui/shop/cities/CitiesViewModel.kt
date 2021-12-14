@@ -11,6 +11,7 @@ import org.skyfaced.smartremont.model.dto.CityDto
 import org.skyfaced.smartremont.navigation.Screens
 import org.skyfaced.smartremont.ui.common.BaseState
 
+@Deprecated("")
 class CitiesViewModel(
     private val modo: Modo,
     private val citiesRepository: CitiesRepository
@@ -43,5 +44,5 @@ class CitiesViewModel(
     /**
      * Navigation
      */
-    fun navigateToShops(cityId: Int) = modo.forward(Screens.ShopsScreen(cityId))
+    fun navigateToShops(cityId: Int) = modo.forward(Screens.ShopsScreen())
 }
