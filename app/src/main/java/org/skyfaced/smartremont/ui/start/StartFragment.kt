@@ -33,7 +33,9 @@ class StartFragment : BaseFragment<FragmentStartBinding>() {
             viewModel.navigateToSignInScreen()
         }
 
-//        binding.root.postDelayed({ viewModel.navigateToMultiScreen() }, 500L)
+        lblWelcome.setOnDebounceClickListener {
+            viewModel.replaceWithMultiScreen()
+        }
     }
 
     companion object {

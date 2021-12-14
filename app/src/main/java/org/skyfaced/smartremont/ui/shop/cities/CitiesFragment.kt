@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import logcat.asLog
 import logcat.logcat
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -16,7 +17,6 @@ import org.skyfaced.smartremont.ui.common.BaseState
 import org.skyfaced.smartremont.util.extensions.flowObserver
 import org.skyfaced.smartremont.util.extensions.lazySafetyNone
 import org.skyfaced.smartremont.util.extensions.showSnack
-import org.skyfaced.smartremont.util.ui.VerticalDivider
 
 class CitiesFragment : BaseFragment<FragmentCitiesBinding>() {
     private val viewModel by viewModel<CitiesViewModel>()
@@ -36,9 +36,7 @@ class CitiesFragment : BaseFragment<FragmentCitiesBinding>() {
         swipeRefreshLayout.isEnabled = false
 
         recyclerView.apply {
-            val height = resources.getDimensionPixelOffset(R.dimen.offset_1dp)
-            val color = ContextCompat.getColor(context, R.color.black)
-            addItemDecoration(VerticalDivider(height, color))
+            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
             adapter = citiesAdapter
         }
     }

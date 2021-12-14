@@ -3,7 +3,8 @@ package org.skyfaced.smartremont.di.modules
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 import org.skyfaced.smartremont.navigation.ApplicationNavigation
-import org.skyfaced.smartremont.network.smartRemont.SmartRemontProvider
+import org.skyfaced.smartremont.network.smartRemont.MockProvider
+import org.skyfaced.smartremont.network.smartRemont.ProductionProvider
 import org.skyfaced.smartremont.util.ApplicationPreferences
 
 val applicationModule = module(createdAtStart = true) {
@@ -11,5 +12,7 @@ val applicationModule = module(createdAtStart = true) {
 
     single { ApplicationNavigation(androidApplication()).modo }
 
-    single { SmartRemontProvider(androidApplication()).api }
+    single { MockProvider(androidApplication()) }
+
+    single { ProductionProvider(androidApplication()) }
 }
