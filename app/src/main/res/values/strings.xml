@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+    <string name="error_confirm_password">Пароли не совпадают</string>
+    <string name="error_fill_empty_field">Заполните пустое поле</string>
+    <string name="error_number_length">Минимальная длина номера %1$d символов</string>
+    <string name="error_password_length">Минимальная длина пароля %1$d символов</string>
+    <string name="error_something_went_wrong">Что-то пошло не так</string>
+
     <string name="helper_password">Минимальная длина пароля - 8 символов</string>
 
     <string name="hint_confirm_password">Подтвердите пароль</string>
     <string name="hint_number">Номер телефона</string>
-    <string name="hint_sms_code">Проверочный код</string>
     <string name="hint_password">Пароль</string>
+    <string name="hint_sms_code">Проверочный код</string>
 
     <string name="lbl_forgot_password">Забыли пароль?</string>
     <string name="lbl_gallery">Галерея</string>
@@ -19,11 +25,7 @@
     <string name="lbl_web">Веб</string>
     <string name="lbl_welcome">Добро пожаловать!</string>
 
-    <string name="error_fill_empty_field">Заполните пустое поле</string>
-    <string name="error_number_length">Минимальная длина номера %1$d символов</string>
-    <string name="error_password_length">Минимальная длина пароля %1$d символов</string>
-    <string name="error_confirm_password">Пароли не совпадают</string>
+    <string name="msg_registration_success">Регистрация прошла успешно\nВам осталось лишь войти</string>
 
     <string name="app_name" translatable="false">Smart Remont</string>
-    <string name="error_something_went_wrong">Что-то пошло не так</string>
 </resources>

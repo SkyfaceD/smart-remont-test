@@ -16,6 +16,7 @@ import org.skyfaced.smartremont.R
 import org.skyfaced.smartremont.databinding.FragmentSignInBinding
 import org.skyfaced.smartremont.ui.common.BaseFragment
 import org.skyfaced.smartremont.ui.common.BaseState
+import org.skyfaced.smartremont.util.consts.Validation
 import org.skyfaced.smartremont.util.extensions.flowObserver
 import org.skyfaced.smartremont.util.extensions.setOnDebounceClickListener
 import org.skyfaced.smartremont.util.extensions.showSnack
@@ -41,11 +42,11 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>() {
             val fields = listOf(number to tilNumber, password to tilPassword)
 
             if (fields.map { showErrorOnNullOrEmptyField(it) }.all { !it }) {
-                if (number.length < MIN_NUMBER_LENGTH) tilNumber.error =
-                    getString(R.string.error_number_length, MIN_NUMBER_LENGTH)
+                if (number.length < Validation.MIN_NUMBER_LENGTH) tilNumber.error =
+                    getString(R.string.error_number_length, Validation.MIN_NUMBER_LENGTH)
 
-                if (password.length < MIN_PASSWORD_LENGTH) tilPassword.error =
-                    getString(R.string.error_password_length, MIN_PASSWORD_LENGTH)
+                if (password.length < Validation.MIN_PASSWORD_LENGTH) tilPassword.error =
+                    getString(R.string.error_password_length, Validation.MIN_PASSWORD_LENGTH)
             }
 
             val tils = listOf(tilNumber, tilPassword)
@@ -113,8 +114,5 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>() {
 
     companion object {
         const val SCREEN_KEY = "signInFragmentScreen"
-
-        private const val MIN_NUMBER_LENGTH = 11
-        private const val MIN_PASSWORD_LENGTH = 8
     }
 }

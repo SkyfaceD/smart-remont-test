@@ -22,7 +22,7 @@ class SignInViewModel(
             .catch { _signInState.emit(BaseState.OnFailure(it.cause)) }
             .onStart { _signInState.emit(BaseState.OnLoading) }
             .collect {
-                if (it.data != null && it.error.message.isNullOrEmpty()) {
+                if (it.data != null && it.response) {
                     signInRepository.saveTokens(it.data.accessToken, it.data.refreshToken)
                     _signInState.emit(BaseState.OnSuccess(null))
                 } else {

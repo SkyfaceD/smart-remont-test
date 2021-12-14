@@ -22,13 +22,13 @@ interface SmartRemontApi {
     suspend fun smsCodeVerify(@Body body: SMSCodeVerifyBody): BaseResponse<TokenDto?>
 
     @POST("password")
-    suspend fun password(@Body body: PasswordBody): BaseResponse<Nothing?>
+    suspend fun password(@Body body: PasswordBody): BaseResponse<EmptyDto?>
 
     @POST("client-login")
     suspend fun clientLogin(@Body body: ClientLoginBody): BaseResponse<TokenDto?>
 
     @POST("client-logout")
-    suspend fun clientLogOut(): BaseResponse<Nothing?>
+    suspend fun clientLogout(): BaseResponse<Nothing?>
 
     @GET("city-list")
     suspend fun cityList(): BaseResponse<List<CityDto>?>
@@ -37,7 +37,7 @@ interface SmartRemontApi {
     suspend fun shopList(@Path("id") cityId: Int): BaseResponse<List<ShopDto>?>
 
     @GET("get-shop/shop_id/{shopId}/city_id/{cityId}")
-    suspend fun shopInfo(
+    suspend fun getShop(
         @Path("shopId") shopId: Int,
         @Path("cityId") cityId: Int
     ): BaseResponse<ShopInfoDto?>
