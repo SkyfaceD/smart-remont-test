@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="-142dp"
+    android:overScrollMode="never"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/fragment_details">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fitsSystemWindows="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_logo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Base.Round"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="4dp"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            tools:text="Snidra" />
+
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            tools:text="12 МЕСЯЦЕВ — национальная компания-ритейлер, лидер в сфере товаров для строительства, отделки и обустройства дома, дачи и сада. " />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_tags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            android:paddingHorizontal="4dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_chip" />
+
+        <TextView
+            android:id="@+id/lbl_filials"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/lbl_company_filials"
+            android:textAppearance="?attr/textAppearanceHeadline6" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_filials"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_filial" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -40,5 +40,5 @@ interface SmartRemontApi {
     suspend fun getShop(
         @Path("shopId") shopId: Int,
         @Path("cityId") cityId: Int
-    ): BaseResponse<ShopInfoDto?>
+    ): BaseResponse<ShopDetailsDto?>
 }

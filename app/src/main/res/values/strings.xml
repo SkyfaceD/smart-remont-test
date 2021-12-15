@@ -32,4 +32,6 @@
     <string name="lbl_city_list">Список городов</string>
     <string name="lbl_shop_count">Филиалы компании: %1$s</string>
     <string name="lbl_no_shop">Нет магазинов</string>
+    <string name="lbl_share">Поделиться</string>
+    <string name="lbl_company_filials">Филиалы компании</string>
 </resources>

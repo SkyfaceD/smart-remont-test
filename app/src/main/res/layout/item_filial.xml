@@ -11,16 +11,17 @@
     android:paddingVertical="16dp">
 
     <TextView
-        android:id="@+id/txt_city"
+        android:id="@+id/txt_address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        tools:text="Нур-Султан" />
+        tools:text="проспект Абая, 94А ( ТД " />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_next" />
+        app:srcCompat="@drawable/ic_next"
+        tools:ignore="ContentDescription" />
 
 </LinearLayout>

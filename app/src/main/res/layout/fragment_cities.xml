@@ -13,6 +13,6 @@
         android:orientation="vertical"
         android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_city" />
+        tools:listitem="@layout/item_filial" />
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

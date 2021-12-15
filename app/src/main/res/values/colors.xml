@@ -10,4 +10,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="divider">#EBEEF0</color>
+    <color name="transparent">#00000000</color>
+    <color name="color_black_opacity_70p">#B3000000</color>
 </resources>

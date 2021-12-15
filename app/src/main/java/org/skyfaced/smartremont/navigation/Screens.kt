@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment
 import com.github.terrakok.modo.android.AppScreen
 import com.github.terrakok.modo.android.MultiAppScreen
 import kotlinx.parcelize.Parcelize
-import org.skyfaced.smartremont.ui.shop.cities.CitiesFragment
 import org.skyfaced.smartremont.ui.shop.details.DetailsFragment
 import org.skyfaced.smartremont.ui.shop.shops.ShopsFragment
 import org.skyfaced.smartremont.ui.signIn.SignInFragment
@@ -64,15 +63,6 @@ object Screens {
         selectedTab
     )
 
-    @Deprecated("")
-    @Parcelize
-    class CitiesScreen : AppScreen(CitiesFragment.SCREEN_KEY) {
-        override fun create(): Fragment {
-            currentScreenKey = id
-            return CitiesFragment()
-        }
-    }
-
     @Parcelize
     class ShopsScreen : AppScreen(ShopsFragment.SCREEN_KEY) {
         override fun create(): Fragment {
@@ -82,10 +72,11 @@ object Screens {
     }
 
     @Parcelize
-    class DetailsScreen(private val shopId: Int) : AppScreen(DetailsFragment.SCREEN_KEY) {
+    class DetailsScreen(private val shopId: Int, private val cityId: Int) :
+        AppScreen(DetailsFragment.SCREEN_KEY) {
         override fun create(): Fragment {
             currentScreenKey = id
-            return DetailsFragment.create(shopId)
+            return DetailsFragment.create(shopId, cityId)
         }
     }
 

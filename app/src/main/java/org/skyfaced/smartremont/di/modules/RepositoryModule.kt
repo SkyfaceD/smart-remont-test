@@ -3,6 +3,8 @@ package org.skyfaced.smartremont.di.modules
 import org.koin.dsl.module
 import org.skyfaced.smartremont.network.smartRemont.MockProvider
 import org.skyfaced.smartremont.network.smartRemont.ProductionProvider
+import org.skyfaced.smartremont.ui.shop.details.DetailsRepository
+import org.skyfaced.smartremont.ui.shop.details.DetailsRepositoryImpl
 import org.skyfaced.smartremont.ui.shop.shops.ShopsRepository
 import org.skyfaced.smartremont.ui.shop.shops.ShopsRepositoryImpl
 import org.skyfaced.smartremont.ui.signIn.SignInRepository
@@ -16,4 +18,6 @@ val repositoryModule = module {
     single<SignUpRepository> { SignUpRepositoryImpl(get<MockProvider>().api) }
 
     single<ShopsRepository> { ShopsRepositoryImpl(get<ProductionProvider>().api) }
+
+    single<DetailsRepository> { DetailsRepositoryImpl(get<ProductionProvider>().api) }
 }

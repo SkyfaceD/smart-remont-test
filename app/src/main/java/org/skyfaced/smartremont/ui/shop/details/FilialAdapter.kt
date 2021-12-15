@@ -1,44 +1,51 @@
-package org.skyfaced.smartremont.ui.shop.cities
+package org.skyfaced.smartremont.ui.shop.details
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import org.skyfaced.smartremont.databinding.ItemCityBinding
-import org.skyfaced.smartremont.model.adapter.CityItem
+import org.skyfaced.smartremont.databinding.ItemFilialBinding
+import org.skyfaced.smartremont.model.adapter.FilialItem
 import org.skyfaced.smartremont.ui.common.BaseViewHolder
 import org.skyfaced.smartremont.util.extensions.setOnDebounceClickListener
 
-@Deprecated("")
-class CitiesAdapter(val onItemClick: (CityItem) -> Unit) :
-    RecyclerView.Adapter<CitiesAdapter.ViewHolder>() {
-    var currentList = emptyList<CityItem>()
+class FilialAdapter(
+    private val onItemClick: (FilialItem) -> Unit,
+    private val onItemLongClick: (FilialItem) -> Boolean
+) : RecyclerView.Adapter<FilialAdapter.ViewHolder>() {
+    var currentList = listOf<FilialItem>()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitList(list: List<CityItem>) {
-        currentList = list
+    fun submitList(items: List<FilialItem>) {
+        currentList = items
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(binding: ItemCityBinding) :
-        BaseViewHolder<ItemCityBinding, CityItem>(binding) {
+    inner class ViewHolder(
+        binding: ItemFilialBinding
+    ) : BaseViewHolder<ItemFilialBinding, FilialItem>(binding) {
         init {
             binding.root.setOnDebounceClickListener {
                 if (adapterPosition == RecyclerView.NO_POSITION) return@setOnDebounceClickListener
                 onItemClick(item)
             }
+
+            binding.root.setOnLongClickListener {
+                if (adapterPosition == RecyclerView.NO_POSITION) return@setOnLongClickListener false
+                onItemLongClick(item)
+            }
         }
 
-        override fun onBind(item: CityItem) {
+        override fun onBind(item: FilialItem) {
             super.onBind(item)
             binding {
-                txtCity.text = item.name
+                txtAddress.text = item.address
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
-        ItemCityBinding.inflate(
+        ItemFilialBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false

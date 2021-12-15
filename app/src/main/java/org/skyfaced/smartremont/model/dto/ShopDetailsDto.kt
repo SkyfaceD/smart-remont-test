@@ -2,9 +2,11 @@ package org.skyfaced.smartremont.model.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.skyfaced.smartremont.model.adapter.FilialItem
+import org.skyfaced.smartremont.model.adapter.TagItem
 
 @Serializable
-data class ShopInfoDto(
+data class ShopDetailsDto(
     @SerialName("shop_id")
     val shopId: Int,
     @SerialName("shop_name")
@@ -39,7 +41,7 @@ data class ShopInfoDto(
         @SerialName("gps_coord")
         val gpsCoord: List<Double>,
         @SerialName("icon_url")
-        val iconUrl: String,
+        val iconUrl: String? = null,
         @SerialName("cashback_percent")
         val cashbackPercent: Int,
         @SerialName("icon_text")
@@ -52,6 +54,12 @@ data class ShopInfoDto(
             val day: String,
             val time: String
         )
+
+        fun toFilialItem() = FilialItem(
+            id = shopCityId,
+            address = shopAddress,
+            siteUrl = siteUrl
+        )
     }
 
     @Serializable
@@ -60,5 +68,10 @@ data class ShopInfoDto(
         val tagId: Int,
         @SerialName("tag_name")
         val tagName: String
-    )
+    ) {
+        fun toTagItem() = TagItem(
+            id = tagId,
+            name = tagName
+        )
+    }
 }

@@ -21,6 +21,7 @@ class ShopsViewModel(
     val citiesState = _citiesState.asStateFlow()
 
     private var _cityItems = listOf<CityItem>()
+    private var selectedCityId = 0
 
     private val _shopsState = MutableStateFlow<BaseState<List<ShopItem>>>(BaseState.OnWaiting)
     val shopsState = _shopsState.asStateFlow()
@@ -51,8 +52,8 @@ class ShopsViewModel(
     }
 
     private suspend fun fetchShops(position: Int) {
-        val cityId = _cityItems[position].id
-        shopsRepository.getShops(cityId)
+        selectedCityId = _cityItems[position].id
+        shopsRepository.getShops(selectedCityId)
             .catch { _shopsState.emit(BaseState.OnFailure(it.cause)) }
             .onStart { _shopsState.emit(BaseState.OnLoading) }
             .collect {
@@ -69,5 +70,5 @@ class ShopsViewModel(
     /**
      * Navigation
      */
-    fun navigateToDetails(shopId: Int) = modo.forward(Screens.DetailsScreen(shopId))
+    fun navigateToDetails(shopId: Int) = modo.forward(Screens.DetailsScreen(shopId, selectedCityId))
 }
