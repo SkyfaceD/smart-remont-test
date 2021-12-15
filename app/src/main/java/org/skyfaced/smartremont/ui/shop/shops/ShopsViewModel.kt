@@ -17,17 +17,15 @@ class ShopsViewModel(
     private val modo: Modo,
     private val shopsRepository: ShopsRepository
 ) : ViewModel() {
-    private val _citiesState = MutableSharedFlow<BaseState<List<CityItem>>>()
-    val citiesState = _citiesState.asSharedFlow()
+    private val _citiesState = MutableStateFlow<BaseState<List<CityItem>>>(BaseState.OnLoading)
+    val citiesState = _citiesState.asStateFlow()
 
     private var _cityItems = listOf<CityItem>()
-    val cityItems get() = _cityItems
 
-    private val _shopsState = MutableSharedFlow<BaseState<List<ShopItem>>>()
-    val shopsState = _shopsState.asSharedFlow()
+    private val _shopsState = MutableStateFlow<BaseState<List<ShopItem>>>(BaseState.OnWaiting)
+    val shopsState = _shopsState.asStateFlow()
 
     private var _shopItems = listOf<ShopItem>()
-    val shopItems get() = _shopItems
 
     init {
         onFetchCities()

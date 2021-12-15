@@ -3,6 +3,8 @@ package org.skyfaced.smartremont.ui.common
 sealed class BaseState<out T> {
     object OnLoading : BaseState<Nothing>()
 
+    object OnWaiting : BaseState<Nothing>()
+
     data class OnSuccess<T>(val data: T) : BaseState<T>()
 
     data class OnFailure(val cause: Throwable? = null, val message: String? = null) :
@@ -13,6 +15,7 @@ sealed class BaseState<out T> {
             is OnFailure -> "Failure $cause $message"
             is OnLoading -> "Loading"
             is OnSuccess -> "Success $data"
+            is OnWaiting -> "Waiting"
         }
     }
 }

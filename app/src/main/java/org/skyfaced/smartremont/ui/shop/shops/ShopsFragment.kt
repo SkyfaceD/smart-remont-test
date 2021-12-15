@@ -38,6 +38,7 @@ class ShopsFragment : BaseFragment<FragmentShopsBinding>() {
     private val citiesPopupWindow by lazySafetyNone {
         ListPopupWindow(requireContext(), null, R.attr.listPopupWindowStyle).apply {
             anchorView = binding.btnMore
+            isModal = true
             width = 500 // FIXME Replace with static dimension
         }
     }
@@ -107,6 +108,8 @@ class ShopsFragment : BaseFragment<FragmentShopsBinding>() {
     }
 
     private fun onShopsSuccess(items: List<ShopItem>) = binding {
+        btnChooseCity.isVisible = false
+        swipeRefreshLayout.isVisible = true
         swipeRefreshLayout.isRefreshing = false
         val items =
             items.map { it.copy(shopCount = getString(R.string.lbl_shop_count, it.shopCount)) }
@@ -132,6 +135,9 @@ class ShopsFragment : BaseFragment<FragmentShopsBinding>() {
     private fun onCitiesSuccess(items: List<CityItem>) = binding {
         progressBar.isVisible = false
         btnChooseCity.isEnabled = true
+        // Re-init anchor for prevent ui bug
+        citiesPopupWindow.anchorView = btnMore
+        citiesAdapter.clear()
         citiesAdapter.addAll(items.map { it.name })
     }
 
