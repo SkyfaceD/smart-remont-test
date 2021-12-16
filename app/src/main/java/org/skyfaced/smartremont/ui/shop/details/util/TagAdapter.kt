@@ -1,4 +1,4 @@
-package org.skyfaced.smartremont.ui.shop.details
+package org.skyfaced.smartremont.ui.shop.details.util
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import org.skyfaced.smartremont.databinding.ItemChipBinding
 import org.skyfaced.smartremont.model.adapter.TagItem
 import org.skyfaced.smartremont.ui.common.BaseViewHolder
 
+//TODO Concat with [ContactsAdapter]
 class TagAdapter(private val onItemClick: (TagItem) -> Unit) :
     RecyclerView.Adapter<TagAdapter.ViewHolder>() {
     var currentList = listOf<TagItem>()

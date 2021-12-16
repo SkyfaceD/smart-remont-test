@@ -34,4 +34,8 @@
     <string name="lbl_no_shop">Нет магазинов</string>
     <string name="lbl_share">Поделиться</string>
     <string name="lbl_company_filials">Филиалы компании</string>
+    <string name="cd_show_on_map">Показать на карте</string>
+    <string name="cd_share">Поделиться ссылкой</string>
+    <string name="lbl_grafik">График работы</string>
+    <string name="lbl_contacts">Контакты</string>
 </resources>

@@ -2,11 +2,11 @@ package org.skyfaced.smartremont.ui.shop.details
 
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
@@ -18,16 +18,17 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import org.skyfaced.smartremont.R
 import org.skyfaced.smartremont.databinding.FragmentDetailsBinding
-import org.skyfaced.smartremont.model.adapter.FilialItem
 import org.skyfaced.smartremont.model.adapter.TagItem
 import org.skyfaced.smartremont.model.dto.ShopDetailsDto
 import org.skyfaced.smartremont.ui.common.BaseFragment
 import org.skyfaced.smartremont.ui.common.BaseState
+import org.skyfaced.smartremont.ui.shop.details.util.FilialAdapter
+import org.skyfaced.smartremont.ui.shop.details.util.TagAdapter
 import org.skyfaced.smartremont.util.extensions.flowObserver
 import org.skyfaced.smartremont.util.extensions.lazySafetyNone
 import org.skyfaced.smartremont.util.extensions.showSnack
 import org.skyfaced.smartremont.util.ui.LetterDrawable
-import org.skyfaced.smartremont.util.ui.VerticalDivider
+import org.skyfaced.smartremont.util.ui.SquareItemDecoration
 import kotlin.random.Random.Default.nextInt
 
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
@@ -37,10 +38,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
     }
 
     private val filialAdapter by lazySafetyNone {
-        FilialAdapter(
-            ::onFilialItemClick,
-            ::onFilialItemLongClick
-        )
+        FilialAdapter(::onFilialShareClick, ::onFilialContactClick, ::onFilialMapClick)
     }
     private val tagAdapter by lazySafetyNone { TagAdapter(::onTagItemClick) }
     private val maxHeight by lazySafetyNone {
@@ -63,9 +61,8 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         with(content) {
             recyclerViewTags.adapter = tagAdapter
             recyclerViewFilials.apply {
-                val height = resources.getDimensionPixelOffset(R.dimen.offset_1dp)
-                val color = ContextCompat.getColor(context, R.color.divider)
-                addItemDecoration(VerticalDivider(height, color))
+                val offset = resources.getDimensionPixelOffset(R.dimen.offset_8dp)
+                addItemDecoration(SquareItemDecoration(offset))
                 adapter = filialAdapter
             }
 
@@ -126,27 +123,33 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         loader.root.isVisible = false
     }
 
-    private fun onFilialItemClick(item: FilialItem) {
-        logcat { item.toString() }
-        // Show dialog
-    }
-
-    private fun onFilialItemLongClick(item: FilialItem): Boolean {
-        logcat { item.toString() }
+    private fun onFilialShareClick(siteUrl: String) {
+        if (siteUrl.isEmpty()) binding.showSnack(R.string.error_something_went_wrong)
 
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
             putExtra(
                 Intent.EXTRA_TEXT,
-                "${binding.content.txtName.text} - ${item.siteUrl}"
+                "${binding.content.txtName.text} - $siteUrl"
             )
             putExtra(Intent.EXTRA_TITLE, "Preview")
             type = "text/plain"
         }
 
         startActivity(Intent.createChooser(sendIntent, "Share"))
+    }
 
-        return true
+    private fun onFilialContactClick(phoneNumber: String) {
+        val intent = Intent().apply {
+            action = Intent.ACTION_DIAL
+            data = Uri.parse("tel:$phoneNumber")
+        }
+
+        startActivity(intent)
+    }
+
+    private fun onFilialMapClick(pair: Pair<Double, Double>) {
+        binding.showSnack(R.string.lbl_under_development)
     }
 
     private fun onTagItemClick(item: TagItem) = binding {

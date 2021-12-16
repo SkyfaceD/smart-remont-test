@@ -2,7 +2,9 @@ package org.skyfaced.smartremont.model.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.skyfaced.smartremont.model.adapter.ContactItem
 import org.skyfaced.smartremont.model.adapter.FilialItem
+import org.skyfaced.smartremont.model.adapter.GrafikItem
 import org.skyfaced.smartremont.model.adapter.TagItem
 
 @Serializable
@@ -53,12 +55,20 @@ data class ShopDetailsDto(
         data class ShopGrafik(
             val day: String,
             val time: String
-        )
+        ) {
+            fun toGrafikItem() = GrafikItem(
+                day = day,
+                time = time
+            )
+        }
 
         fun toFilialItem() = FilialItem(
             id = shopCityId,
             address = shopAddress,
-            siteUrl = siteUrl
+            siteUrl = siteUrl,
+            coordinates = gpsCoord[0] to gpsCoord[1],
+            grafik = shopGrafik.map(ShopGrafik::toGrafikItem),
+            contacts = phoneNumbers.map { ContactItem(it) }
         )
     }
 
