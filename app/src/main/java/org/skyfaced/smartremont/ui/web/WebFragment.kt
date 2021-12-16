@@ -23,9 +23,11 @@ class WebFragment : BaseFragment<FragmentWebBinding>() {
 
     @SuppressLint("SetJavaScriptEnabled")
     fun setupContent() = binding {
-        webView.webViewClient = ReactWebClient()
-        webView.settings.javaScriptEnabled = true
-        webView.loadUrl(BASE_URL)
+        webView.postDelayed({
+            webView.webViewClient = ReactWebClient()
+            webView.settings.javaScriptEnabled = true
+            webView.loadUrl(BASE_URL)
+        }, 1_500L)
     }
 
     inner class ReactWebClient : WebViewClient() {
