@@ -5,22 +5,18 @@ import android.graphics.drawable.Drawable
 import kotlin.random.Random.Default.nextInt
 
 //TODO Customize size
-class LetterDrawable(word: String) : Drawable() {
+class LetterDrawable(word: String, textSize: Float = 52f, backgroundColor: Int? = null) :
+    Drawable() {
     private val letter = word[0].uppercaseChar().toString()
-    private val colors = listOf(
-        "#D32F2F", "#C2185B", "#7B1FA2", "#512DA8",
-        "#303F9F", "#1976D2", "#00796B", "#388E3C",
-        "#FBC02D", "#FFA000", "#F57C00", "#E64A19"
-    )
     private val textPaint: Paint = Paint().apply {
         isAntiAlias = true
         color = Color.WHITE
-        textSize = 52f
+        this.textSize = textSize
         textAlign = Paint.Align.LEFT
     }
     private val backgroundPaint: Paint = Paint().apply {
         isAntiAlias = true
-        color = Color.parseColor(colors[nextInt(colors.size)])
+        color = backgroundColor ?: Color.parseColor(colors[nextInt(colors.size)])
     }
     private val textRect = Rect()
 
@@ -46,4 +42,12 @@ class LetterDrawable(word: String) : Drawable() {
     }
 
     override fun getOpacity(): Int = PixelFormat.OPAQUE
+
+    companion object {
+        val colors = listOf(
+            "#D32F2F", "#C2185B", "#7B1FA2", "#512DA8",
+            "#303F9F", "#1976D2", "#00796B", "#388E3C",
+            "#FBC02D", "#FFA000", "#F57C00", "#E64A19"
+        )
+    }
 }

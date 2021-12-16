@@ -16,7 +16,7 @@ data class ShopDetailsDto(
     @SerialName("icon_text")
     val iconText: String,
     @SerialName("icon_url")
-    val iconUrl: String,
+    val iconUrl: String?,
     @SerialName("shop_cnt")
     val shopCnt: Int,
     @SerialName("cashback_percent_min")
@@ -41,7 +41,7 @@ data class ShopDetailsDto(
         @SerialName("gps_coord")
         val gpsCoord: List<Double>,
         @SerialName("icon_url")
-        val iconUrl: String? = null,
+        val iconUrl: String?,
         @SerialName("cashback_percent")
         val cashbackPercent: Int,
         @SerialName("icon_text")

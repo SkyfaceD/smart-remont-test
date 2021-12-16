@@ -3,6 +3,7 @@ package org.skyfaced.smartremont.network
 import android.annotation.SuppressLint
 import android.app.Application
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import logcat.logcat
 import okhttp3.Cache
@@ -18,10 +19,14 @@ import javax.net.ssl.SSLSocketFactory
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
+@OptIn(ExperimentalSerializationApi::class)
 open class BaseProvider(private val application: Application) {
     companion object {
         const val DEFAULT_TIMEOUT_SECONDS = 15L
     }
+
+    private val serializer = Json { explicitNulls = false }
+    private val converter = serializer.asConverterFactory("application/json".toMediaType())
 
     private val logcatLoggingInterceptor: HttpLoggingInterceptor =
         HttpLoggingInterceptor { message ->
@@ -80,5 +85,5 @@ open class BaseProvider(private val application: Application) {
         }
 
     protected val retrofitBuilder: Retrofit.Builder = Retrofit.Builder()
-        .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+        .addConverterFactory(converter)
 }

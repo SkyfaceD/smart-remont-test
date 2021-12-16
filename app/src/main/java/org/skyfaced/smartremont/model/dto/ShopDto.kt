@@ -13,7 +13,7 @@ data class ShopDto(
     @SerialName("icon_text")
     val iconText: String,
     @SerialName("icon_url")
-    val iconUrl: String? = null,
+    val iconUrl: String?,
     @SerialName("shop_cnt")
     val shopCnt: Int,
     @SerialName("cashback_percent_min")

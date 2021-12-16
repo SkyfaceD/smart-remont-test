@@ -1,6 +1,7 @@
 package org.skyfaced.smartremont.ui.shop.details
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ import org.skyfaced.smartremont.util.extensions.lazySafetyNone
 import org.skyfaced.smartremont.util.extensions.showSnack
 import org.skyfaced.smartremont.util.ui.LetterDrawable
 import org.skyfaced.smartremont.util.ui.VerticalDivider
+import kotlin.random.Random.Default.nextInt
 
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
     private val args by lazySafetyNone { requireArguments() }
@@ -92,22 +94,24 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         loader.root.isVisible = false
         content.root.isVisible = true
 
-        val drawable = LetterDrawable(dto.shopName)
-
         val filialItems = dto.shopFilials.map(ShopDetailsDto.ShopFilial::toFilialItem)
         filialAdapter.submitList(filialItems)
 
         val tagItems = dto.shopTags.map(ShopDetailsDto.ShopTags::toTagItem)
         tagAdapter.submitList(tagItems)
 
-        content.imgLogo.load(dto.iconUrl) {
+        val backgroundColor =
+            Color.parseColor(LetterDrawable.colors[nextInt(LetterDrawable.colors.size)])
+        content.imgLogo.load(dto.iconUrl ?: "") {
+            val drawable = LetterDrawable(dto.shopName, 72f, backgroundColor)
             placeholder(drawable)
             error(drawable)
         }
         content.txtName.text = dto.shopName
         content.txtDescription.text = dto.shopDescription
 
-        toolbar.imgCollapseLogo.load(dto.iconUrl) {
+        toolbar.imgCollapseLogo.load(dto.iconUrl ?: "") {
+            val drawable = LetterDrawable(dto.shopName, 36f, backgroundColor)
             placeholder(drawable)
             error(drawable)
         }
