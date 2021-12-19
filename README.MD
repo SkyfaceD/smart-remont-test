@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/user/1a9f3ef6-846f-49d3-9216-c03b6d661710/project/d413ef3d-9878-42fe-8a33-f546fcb01893.svg)](https://wakatime.com/badge/user/1a9f3ef6-846f-49d3-9216-c03b6d661710/project/d413ef3d-9878-42fe-8a33-f546fcb01893)
+
 ## Download
 
 Debug|Release
