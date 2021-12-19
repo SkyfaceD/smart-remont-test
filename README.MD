@@ -30,7 +30,12 @@ TODO
 
 ## Screenshots
 
-<img src="/.screenshots/start.png" width="260" title="Стартовый экран">&emsp;<img src="/.screenshots/sign-in-one.png" width="260" title="Регистрация">&emsp;<img src="/.screenshots/sign-in-two.png" width="260" title="Регистрация">&emsp;<img src="/.screenshots/sign-in-three.png" width="260" title="Регистрация">&emsp;<img src="/.screenshots/shop-one.png" width="260" title="Магазины">&emsp;<img src="/.screenshots/shop-two.png" width="260" title="Магазины">&emsp;<img src="/.screenshots/details-one.png" width="260" title="Детали магазина">&emsp;<img src="/.screenshots/details-two.png" width="260" title="Детали магазина">&emsp;<img src="/.screenshots/web.png" width="260" title="Веб">&emsp;<img src="/.screenshots/gallery.png" width="260" title="Галлерея">
+<p align="center">
+<img src="/.screenshots/start.png"  width="260" title="Стартовый экран">&emsp;
+</p>
+<p align="center">
+<img src="/.screenshots/sign-in-one.png" width="260" title="Регистрация">&emsp;<img src="/.screenshots/sign-in-two.png" width="260" title="Регистрация">&emsp;<img src="/.screenshots/sign-in-three.png" width="260" title="Регистрация">&emsp;<img src="/.screenshots/shop-one.png" width="260" title="Магазины">&emsp;<img src="/.screenshots/shop-two.png" width="260" title="Магазины">&emsp;<img src="/.screenshots/details-one.png" width="260" title="Детали магазина">&emsp;<img src="/.screenshots/web.png" width="260" title="Веб">&emsp;<img src="/.screenshots/gallery.png" width="260" title="Галлерея">
+</p>
 
 ## Try it out
 
