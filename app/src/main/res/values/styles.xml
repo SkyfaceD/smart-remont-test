@@ -17,4 +17,8 @@
     <style name="ShapeAppearance.Base.Round" parent="">
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="ShapeAppearance.Base.Round16dp" parent="">
+        <item name="cornerSize">16dp</item>
+    </style>
 </resources>

@@ -6,6 +6,7 @@ import org.skyfaced.smartremont.navigation.ApplicationNavigation
 import org.skyfaced.smartremont.network.smartRemont.MockProvider
 import org.skyfaced.smartremont.network.smartRemont.ProductionProvider
 import org.skyfaced.smartremont.util.ApplicationPreferences
+import org.skyfaced.smartremont.util.FileHelper
 
 val applicationModule = module(createdAtStart = true) {
     single { ApplicationPreferences(androidApplication()) }
@@ -15,4 +16,6 @@ val applicationModule = module(createdAtStart = true) {
     single { MockProvider(androidApplication()) }
 
     single { ProductionProvider(androidApplication()) }
+
+    single { FileHelper(androidApplication()) }
 }

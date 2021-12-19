@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import com.github.terrakok.modo.android.AppScreen
 import com.github.terrakok.modo.android.MultiAppScreen
 import kotlinx.parcelize.Parcelize
+import org.skyfaced.smartremont.ui.gallery.GalleryFragment
 import org.skyfaced.smartremont.ui.shop.details.DetailsFragment
 import org.skyfaced.smartremont.ui.shop.shops.ShopsFragment
 import org.skyfaced.smartremont.ui.signIn.SignInFragment
@@ -57,6 +58,7 @@ object Screens {
         GalleryScreen()
     )
 
+    @Suppress("FunctionName")
     fun MultiStack(selectedTab: Int = SHOP_TAB) = MultiAppScreen(
         MULTI_STACK_SCREEN_ID,
         multiStackScreens,
@@ -89,10 +91,10 @@ object Screens {
     }
 
     @Parcelize
-    class GalleryScreen : AppScreen(StartFragment.SCREEN_KEY) {
+    class GalleryScreen : AppScreen(GalleryFragment.SCREEN_KEY) {
         override fun create(): Fragment {
             currentScreenKey = id
-            return StartFragment()
+            return GalleryFragment()
         }
     }
 }

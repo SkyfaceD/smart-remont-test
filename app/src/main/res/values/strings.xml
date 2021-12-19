@@ -38,4 +38,6 @@
     <string name="cd_share">Поделиться ссылкой</string>
     <string name="lbl_grafik">График работы</string>
     <string name="lbl_contacts">Контакты</string>
+    <string name="cd_add_photo">Добавить фотографию</string>
+    <string name="cd_take_photo">Сфотографировать</string>
 </resources>
