@@ -20,6 +20,8 @@ import android.view.View;
 import org.skyfaced.smartremont.R;
 
 /**
+ * https://github.com/HeZaiJin/SlantedTextView
+ *
  * @author HaoZhang
  */
 public class SlantedTextView extends View {
