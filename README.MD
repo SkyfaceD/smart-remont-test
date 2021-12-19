@@ -1,6 +1,12 @@
 ## Download
 
-TODO
+Debug|Release
+---|---
+with leakcanary|with minify and shrink
+
+Apks can be found in github [release](https://github.com/SkyfaceD/kpm-test/releases/) section.
+
+You can install both versions on one device.
 
 ## Stack
 
