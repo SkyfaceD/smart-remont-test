@@ -39,24 +39,13 @@ class FileHelper(private val context: Context) {
             imageByteArray = it?.readBytes() ?: ByteArray(0)
         }
 
-        val extension = uri.toString().substringAfterLast('.')
-        val tempFile =
-            File.createTempFile(IMAGE_FILE_PREFIX, ".$extension", context.cacheDir).apply {
-                createNewFile()
-                deleteOnExit()
-            }
+        val tempFile = getTempFileUri()
 
-        val cache = FileProvider.getUriForFile(
-            context,
-            "${BuildConfig.APPLICATION_ID}.fileprovider",
-            tempFile
-        )
-
-        context.contentResolver.openOutputStream(cache).use {
+        context.contentResolver.openOutputStream(tempFile).use {
             it?.write(imageByteArray)
         }
 
-        return cache
+        return tempFile
     }
 
     companion object {
