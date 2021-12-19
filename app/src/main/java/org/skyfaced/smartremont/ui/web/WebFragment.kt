@@ -27,7 +27,7 @@ class WebFragment : BaseFragment<FragmentWebBinding>() {
             webView.webViewClient = ReactWebClient()
             webView.settings.javaScriptEnabled = true
             webView.loadUrl(BASE_URL)
-        }, 1_500L)
+        }, 500L)
     }
 
     inner class ReactWebClient : WebViewClient() {

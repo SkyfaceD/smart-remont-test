@@ -1,6 +1,7 @@
 package org.skyfaced.smartremont.ui
 
 import android.os.Bundle
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.github.terrakok.modo.MultiScreen
@@ -43,6 +44,15 @@ class MainActivity : AppCompatActivity() {
         setupBinding()
         setupModo(savedInstanceState)
         setupContent()
+        setupWebView()
+    }
+
+    private fun setupWebView() {
+        try {
+            WebView(applicationContext).apply { destroy() }
+        } catch (ignore: Exception) {
+            // Ignore
+        }
     }
 
     private fun setupContent() = binding {
