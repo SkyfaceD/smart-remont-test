@@ -2,6 +2,7 @@
 /.gradle
 /.idea
 /.keystore
+/app/release
 
 /local.properties
 .DS_Store
