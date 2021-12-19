@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+    <string name="cd_add_photo">Добавить фотографию</string>
+    <string name="cd_logout">Выход из учетной записи</string>
+    <string name="cd_select_country">Выбор города</string>
+    <string name="cd_share">Поделиться ссылкой</string>
+    <string name="cd_show_on_map">Показать на карте</string>
+    <string name="cd_take_photo">Сфотографировать</string>
+
     <string name="error_confirm_password">Пароли не совпадают</string>
     <string name="error_fill_empty_field">Заполните пустое поле</string>
     <string name="error_number_length">Минимальная длина номера %1$d символов</string>
@@ -13,12 +20,20 @@
     <string name="hint_password">Пароль</string>
     <string name="hint_sms_code">Проверочный код</string>
 
+    <string name="lbl_city_list">Список городов</string>
+    <string name="lbl_company_filials">Филиалы компании</string>
+    <string name="lbl_contacts">Контакты</string>
     <string name="lbl_forgot_password">Забыли пароль?</string>
     <string name="lbl_gallery">Галерея</string>
+    <string name="lbl_grafik">График работы</string>
     <string name="lbl_next">Далее</string>
+    <string name="lbl_no_shop">Нет магазинов</string>
     <string name="lbl_notification_subtitle">Ваш проверочный код: %1$s</string>
     <string name="lbl_notification_title">Вам пришло уведомление</string>
+    <string name="lbl_select_city">Выбрать город</string>
+    <string name="lbl_share">Поделиться</string>
     <string name="lbl_shop">Магазин</string>
+    <string name="lbl_shop_count">Филиалы компании: %1$s</string>
     <string name="lbl_sign_in">Войти</string>
     <string name="lbl_sign_up">Зарегистрироваться</string>
     <string name="lbl_under_development">В разработке</string>
@@ -28,16 +43,4 @@
     <string name="msg_registration_success">Регистрация прошла успешно\nВам осталось лишь войти</string>
 
     <string name="app_name" translatable="false">Smart Remont</string>
-    <string name="lbl_select_city">Выбрать город</string>
-    <string name="lbl_city_list">Список городов</string>
-    <string name="lbl_shop_count">Филиалы компании: %1$s</string>
-    <string name="lbl_no_shop">Нет магазинов</string>
-    <string name="lbl_share">Поделиться</string>
-    <string name="lbl_company_filials">Филиалы компании</string>
-    <string name="cd_show_on_map">Показать на карте</string>
-    <string name="cd_share">Поделиться ссылкой</string>
-    <string name="lbl_grafik">График работы</string>
-    <string name="lbl_contacts">Контакты</string>
-    <string name="cd_add_photo">Добавить фотографию</string>
-    <string name="cd_take_photo">Сфотографировать</string>
 </resources>

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.terrakok.modo.Modo
 import com.github.terrakok.modo.forward
+import com.github.terrakok.modo.newStack
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.skyfaced.smartremont.model.adapter.CityItem
@@ -35,6 +36,8 @@ class ShopsViewModel(
     fun onFetchCities() = viewModelScope.launch { fetchCities() }
 
     fun onFetchShops(position: Int) = viewModelScope.launch { fetchShops(position) }
+
+    fun logout(block: Unit.() -> Unit) = viewModelScope.launch { shopsRepository.logout(block) }
 
     private suspend fun fetchCities() {
         shopsRepository.getCities()
@@ -71,4 +74,6 @@ class ShopsViewModel(
      * Navigation
      */
     fun navigateToDetails(shopId: Int) = modo.forward(Screens.DetailsScreen(shopId, selectedCityId))
+
+    fun replaceWithStart() = modo.newStack(Screens.StartScreen())
 }

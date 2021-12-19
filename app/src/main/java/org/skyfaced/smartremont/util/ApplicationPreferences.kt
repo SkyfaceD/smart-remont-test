@@ -22,4 +22,9 @@ class ApplicationPreferences(context: Context) {
         putString(ACCESS_TOKEN, accessToken)
         putString(REFRESH_TOKEN, refreshToken)
     }
+
+    fun clearTokens(block: Unit.() -> Unit) = preferences.edit(commit = true) {
+        remove(ACCESS_TOKEN)
+        remove(REFRESH_TOKEN)
+    }.apply(block)
 }

@@ -19,7 +19,13 @@ val repositoryModule = module {
 
     single<SignUpRepository> { SignUpRepositoryImpl(get<MockProvider>().api) }
 
-    single<ShopsRepository> { ShopsRepositoryImpl(get<ProductionProvider>().api) }
+    single<ShopsRepository> {
+        ShopsRepositoryImpl(
+            get<ProductionProvider>().api,
+            get<MockProvider>().api,
+            get()
+        )
+    }
 
     single<DetailsRepository> { DetailsRepositoryImpl(get<ProductionProvider>().api) }
 

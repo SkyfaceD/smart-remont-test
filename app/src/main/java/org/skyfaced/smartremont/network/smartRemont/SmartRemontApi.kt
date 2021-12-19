@@ -28,7 +28,7 @@ interface SmartRemontApi {
     suspend fun clientLogin(@Body body: ClientLoginBody): BaseResponse<TokenDto?>
 
     @POST("client-logout")
-    suspend fun clientLogout(): BaseResponse<Nothing?>
+    suspend fun clientLogout(): BaseResponse<EmptyDto?>
 
     @GET("city-list")
     suspend fun cityList(): BaseResponse<List<CityDto>?>

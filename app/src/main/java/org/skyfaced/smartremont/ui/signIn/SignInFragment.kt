@@ -99,7 +99,8 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>() {
         btnSignIn.isEnabled = false
     }
 
-    private fun onSuccess() {
+    private fun onSuccess() = binding {
+        progressBar.isVisible = false
         viewModel.showMultiScreen()
     }
 

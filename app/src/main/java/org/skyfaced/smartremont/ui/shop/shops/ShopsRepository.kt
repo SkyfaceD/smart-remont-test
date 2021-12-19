@@ -9,4 +9,6 @@ interface ShopsRepository {
     fun getCities(): Flow<BaseResponse<List<CityDto>?>>
 
     fun getShops(cityId: Int): Flow<BaseResponse<List<ShopDto>?>>
+
+    suspend fun logout(block: Unit.() -> Unit)
 }

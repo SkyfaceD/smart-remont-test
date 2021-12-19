@@ -71,6 +71,12 @@ class ShopsFragment : BaseFragment<FragmentShopsBinding>() {
             }
         }
 
+        btnLogout.setOnDebounceClickListener {
+            viewModel.logout {
+                viewModel.replaceWithStart()
+            }
+        }
+
         btnMore.setOnDebounceClickListener {
             if (btnChooseCity.isEnabled && !citiesAdapter.isEmpty) {
                 citiesPopupWindow.show()
