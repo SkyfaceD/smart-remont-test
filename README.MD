@@ -8,6 +8,9 @@ Apks can be found in github [release](https://github.com/SkyfaceD/smart-remont-t
 
 You can install both versions on one device.
 
+## Known issues
+- Auto-login feature don't supported. Idk how to use refresh token, documentation doesn't explain it or I'm missing something :/
+
 ## Stack
 
 - [Kotlin](https://kotlinlang.org/) - main language
